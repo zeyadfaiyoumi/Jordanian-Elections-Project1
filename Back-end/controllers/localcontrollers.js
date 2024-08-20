@@ -194,9 +194,9 @@ exports.voteForList = async (req, res) => {
   const { national_id, list_id, selected_candidates } = req.body;
 
   // التحقق من أن قائمة المرشحين المختارين موجودة وصحيحة
-  if (!Array.isArray(selected_candidates) || selected_candidates.length === 0) {
-    return res.status(400).json({ error: "No candidates selected." });
-  }
+  // if (!Array.isArray(selected_candidates) || selected_candidates.length === 0) {
+  //   return res.status(400).json({ error: "No candidates selected." });
+  // }
 
   try {
     // التحقق من حالة التصويت للمواطن

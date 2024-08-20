@@ -67,60 +67,93 @@ function PartyLists() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <Nav />
-      <div className="container mx-auto p-4">
-        <h2 className="text-2xl font-bold text-center mb-6">قائمة الأحزاب</h2>
-        <div className="flex justify-center mb-6">
-          <div className="relative w-full max-w-md">
-            <input
-              type="text"
-              className="border border-gray-300 rounded-lg p-3 w-full shadow-md focus:ring-2 focus:ring-blue-500"
-              placeholder="البحث عن حزب"
-            />
-            <div className="absolute inset-y-0 left-0 flex items-center pl-3">
-              <FaSearch className="text-gray-500" />
+    <>
+      <div className="min-h-screen bg-gray-100">
+        <Nav />
+        <div className="container mx-auto p-4">
+          <h2 className="text-2xl font-bold text-center mb-6">قائمة الأحزاب</h2>
+          <div className="flex justify-center mb-6">
+            <div className="relative w-full max-w-md">
+              <input
+                type="text"
+                className="border border-gray-300 rounded-lg p-3 w-full shadow-md focus:ring-2 focus:ring-blue-500"
+                placeholder="البحث عن حزب"
+              />
+              <div className="absolute inset-y-0 left-0 flex items-center pl-3">
+                <FaSearch className="text-gray-500" />
+              </div>
             </div>
           </div>
-        </div>
-        {error && (
-          <div className="bg-red-500 text-white p-3 rounded-lg mb-6 text-center">
-            {error}
-          </div>
-        )}
-        {party.length === 0 ? (
-          <p className="text-center text-gray-500">
-            لا توجد قوائم حزبية متاحة حاليًا
-          </p>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {party.map((item) => (
-              <div
-                key={item.party_list_id}
-                className="relative bg-white border border-gray-300 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="p-4">
-                  <h3 className="text-xl font-semibold mb-2">
-                    {item.party_name}
-                  </h3>
+          {error && (
+            <div className="bg-red-500 text-white p-3 rounded-lg mb-6 text-center">
+              {error}
+            </div>
+          )}
+          {party.length === 0 ? (
+            <p className="text-center text-gray-500">
+              لا توجد قوائم حزبية متاحة حاليًا
+            </p>
+          ) : (
+            // <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            //   {party.map((item) => (
+            //     <div
+            //       key={item.party_list_id}
+            //       className="relative bg-white border border-gray-300 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+            //     >
+            //       <div className="p-4">
+            //         <h3 className="text-xl font-semibold mb-2">
+            //           {item.party_name}
+            //         </h3>
 
-                  {/* <p className="text-gray-700 mb-4">
-                    عدد الأصوات: {item.vote_count}
-                  </p> */}
-                  <button
-                    onClick={() => handleVoteClick(item)}
-                    className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600"
-                  >
-                    تصويت
-                  </button>
+            //         {/* <p className="text-gray-700 mb-4">
+            //           عدد الأصوات: {item.vote_count}
+            //         </p> */}
+            //         <button
+            //           onClick={() => handleVoteClick(item)}
+            //           className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600"
+            //         >
+            //           تصويت
+            //         </button>
+            //       </div>
+            //     </div>
+            //   ))}
+            // </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {party.map((item) => (
+                <div
+                  key={item.party_list_id}
+                  className="relative bg-cover bg-center border border-gray-300 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+                  style={{
+                    backgroundImage:
+                      "url('https://i.postimg.cc/RFxVNjqP/Rectangle-19.png')",
+                    backgroundSize: "cover",
+                  }}
+                >
+                  <div className="p-6 bg-white bg-opacity-80 rounded-lg">
+                    <h3 className="text-xl font-semibold mb-4 text-gray-800 text-center">
+                      {item.party_name}
+                    </h3>
+
+                    <div className="flex justify-center mt-4">
+                      <button
+                        onClick={() => handleVoteClick(item)}
+                        className=" text-white px-4 py-2 rounded-md  transition duration-300 ease-in-out"
+                        style={{
+                          backgroundColor: "#8E1B3B", // اللون المناسب للخلفية
+                        }}
+                      >
+                        تصويت
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        )}
+              ))}
+            </div>
+          )}
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 }
 
