@@ -49,7 +49,9 @@ exports.getlistsByDistrict = async (req, res) => {
     if (!district_id) {
       return res.status(400).json({ error: "district_id is required" });
     }
-    const data = await db("lists").where("district_id", district_id);
+    const data = await db("lists")
+      .where("district_id", district_id)
+      .andWhere("activation", true);
     res.json(data);
   } catch (err) {
     console.error(err);
