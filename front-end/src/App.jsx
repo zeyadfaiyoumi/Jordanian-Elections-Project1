@@ -22,7 +22,7 @@ import Createlist from "./pages/Createlist";
 
 import Createparty from "./pages/createparty";
 
-// import PaymentComponent from "./pages/payment/payment";
+import PaymentComponent from "./pages/payment/payment";
 
 // بعد الاستيراد، تحتاج إلى تعيين العنصر الجذر للتأكد من أن المودال يظهر بشكل صحيح.
 Modal.setAppElement("#root"); // أو أي عنصر جذر آخر في تطبيقك
@@ -50,7 +50,7 @@ const App = () => {
         <Route path="/partlocal" element={<ElectionCards />} />
         <Route path="/listlocal" element={<Createlist />} />
         <Route path="/createparty" element={<Createparty />} />
-        {/* <Route path="/PaymentComponent" element={<PaymentComponent />} /> */}
+        <Route path="/PaymentComponent" element={<PaymentComponent />} />
       </Routes>
     </Router>
   );

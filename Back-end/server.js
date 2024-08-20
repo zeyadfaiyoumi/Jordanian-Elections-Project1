@@ -5,6 +5,8 @@ const userAuthRoutes = require("./routes/userAuthroutes"); // Ensure this file e
 const chatRoutes = require("./routes/chatRoutes");
 const electionRoutes = require("./routes/electionRoutes");
 const debateRoutes = require("./routs/debateRoutes"); // New import for debate routes
+const listRoutes = require("./routes/Createlist"); // Import your routes //here .....
+const bodyParser = require("body-parser"); //here ......
 require("dotenv").config();
 
 const app = express();
@@ -17,6 +19,8 @@ app.use("/api/userAuth", userAuthRoutes); // Ensure this line is present and cor
 app.use("/api/chat", chatRoutes); // Ensure this line is present and correct
 app.use("/api", electionRoutes);
 app.use("/api/debates", debateRoutes); // New route for debates
+app.use(bodyParser.json()); // For parsing application/json //here ....
+app.use("/api/r", listRoutes); // Prefix all routes with /api //here .... +edit on client side
 
 const PORT = process.env.PORT || 5000;
 

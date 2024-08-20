@@ -71,6 +71,9 @@ const Navbar = () => {
             <Link to="/partlocal" className="hover:text-gray-600">
               ترشح الان
             </Link>
+            <Link to="/PaymentComponent" className="hover:text-gray-600">
+              اعلانات
+            </Link>
             <Link
               to="/create-debate"
               className="text-lg hover:text-gray-600"
