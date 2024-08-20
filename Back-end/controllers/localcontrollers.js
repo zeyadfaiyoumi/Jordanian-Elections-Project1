@@ -189,33 +189,47 @@ exports.getCandidatesByList = async (req, res) => {
 
 // Register a vote for a list
 exports.voteForList = async (req, res) => {
-  const { national_id, list_id } = req.body;
+  const { national_id, list_id, selected_candidates } = req.body;
+
+  // التحقق من أن قائمة المرشحين المختارين موجودة وصحيحة
+  if (!Array.isArray(selected_candidates) || selected_candidates.length === 0) {
+    return res.status(400).json({ error: "No candidates selected." });
+  }
 
   try {
-    // Verify the citizen's voting status
+    // التحقق من حالة التصويت للمواطن
     const citizen = await db("citizens")
       .select("is_voted_local")
       .where({ national_id })
       .first();
 
     if (!citizen) {
-      return res.status(404).json({ error: "User not found." });
+      return res.status(404).json({ error: "المستخدم غير موجود" });
     }
 
-    if (citizen.is_voted_local) {
-      return res.status(400).json({ error: "User has already voted." });
-    }
+    // if (citizen.is_voted_local) {
+    //   return res.status(400).json({ error: "لقد تم التصويت بالفعل " });
+    // }
 
-    // Perform the transaction
+    // تنفيذ المعاملة
     await db.transaction(async (trx) => {
+      // تحديث عداد الأصوات في جدول القوائم
       await trx("lists").where("list_id", list_id).increment("vote_count", 1);
 
+      // تحديث عداد الأصوات لكل مرشح مختار في جدول candidates_local
+      for (const candidateNationalId of selected_candidates) {
+        await trx("candidates_local")
+          .where({ national_id: candidateNationalId })
+          .increment("vote_count", 1);
+      }
+
+      // تحديث حالة التصويت للمواطن
       await trx("citizens")
         .where({ national_id })
         .update({ is_voted_local: true });
     });
 
-    res.json({ message: "Vote successfully recorded." });
+    res.json({ message: "تم التصويت بنجاح." });
   } catch (err) {
     console.error("Error in voteForList controller:", err);
     res.status(500).json({ error: "Server Error", details: err.message });
