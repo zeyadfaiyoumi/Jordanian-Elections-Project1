@@ -71,7 +71,7 @@ const Createlist = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/submit-form-Createlist",
+        "http://localhost:5000/api/r/submit-form-Createlist",
         data
       ); // Update the URL to your backend endpoint
       // Handle success
@@ -125,7 +125,7 @@ const Createlist = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/submitcandidatesAmman1",
+        "http://localhost:5000/api/r/submitcandidatesAmman1",
         candidates
       );
       if (response.status === 200) {
@@ -159,7 +159,7 @@ const Createlist = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/submitcandidatesAmman3",
+        "http://localhost:5000/api/r/submitcandidatesAmman3",
         candidates
       );
       if (response.status === 200) {
@@ -197,7 +197,7 @@ const Createlist = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/submitcandidatesZarqaa",
+        "http://localhost:5000/api/r/submitcandidatesZarqaa",
         candidates
       );
       if (response.status === 200) {
