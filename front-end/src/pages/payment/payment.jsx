@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
+import Adv from "../electoralLists/Adv";
 import {
   Elements,
   CardElement,
@@ -67,6 +68,10 @@ const CheckoutForm = () => {
           text: "شكراً لدفعك.",
           icon: "success",
           confirmButtonText: "موافق",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.assign("/adv"); // Redirect to the Adv page via link
+          }
         });
       }
 

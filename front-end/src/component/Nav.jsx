@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../Media/logo.png"; // Correctly import logo image
 import navbarBackground from "../Media/navbar_1.png"; // Import the background image
 import Cookies from "js-cookie"; // Import cookies library
+import Adv from "../pages/electoralLists/Adv";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -61,6 +62,7 @@ const Navbar = () => {
             <Link to="/pages/aboutUs" className="hover:text-gray-600">
               من نحن
             </Link>
+            
 
             <Link to="/pages/contactUs" className="hover:text-gray-600">
               تواصل معنا
