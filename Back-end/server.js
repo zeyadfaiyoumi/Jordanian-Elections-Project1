@@ -7,6 +7,8 @@ const electionRoutes = require("./routes/electionRoutes");
 const debateRoutes = require("./routs/debateRoutes"); // New import for debate routes
 const listRoutes = require("./routes/Createlist"); // Import your routes //here .....
 const bodyParser = require("body-parser"); //here ......
+const postsRouter = require('./routes/posts'); // Adjust the path to your routes
+
 require("dotenv").config();
 
 const app = express();
@@ -21,6 +23,8 @@ app.use("/api", electionRoutes);
 app.use("/api/debates", debateRoutes); // New route for debates
 app.use(bodyParser.json()); // For parsing application/json //here ....
 app.use("/api/r", listRoutes); // Prefix all routes with /api //here .... +edit on client side
+app.use('/api', postsRouter);
+
 
 const PORT = process.env.PORT || 5000;
 

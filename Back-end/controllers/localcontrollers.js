@@ -209,9 +209,9 @@ exports.voteForList = async (req, res) => {
       return res.status(404).json({ error: "المستخدم غير موجود" });
     }
 
-    if (citizen.is_voted_local) {
-      return res.status(400).json({ error: "لقد تم التصويت بالفعل " });
-    }
+    // if (citizen.is_voted_local) {
+    //   return res.status(400).json({ error: "لقد تم التصويت بالفعل " });
+    // }
 
     // تنفيذ المعاملة
     await db.transaction(async (trx) => {
