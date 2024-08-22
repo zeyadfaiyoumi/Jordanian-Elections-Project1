@@ -40,7 +40,7 @@ const Posts = () => {
               </h3>
               <p className="text-gray-700">{post.description}</p>
             </div>
-            <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 to-blue-800"></div>
+            <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-gray-300 to-gray-500"></div>
           </div>
         ))}
       </div>

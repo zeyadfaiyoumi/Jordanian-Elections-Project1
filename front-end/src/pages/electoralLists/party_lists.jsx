@@ -94,30 +94,7 @@ function PartyLists() {
               لا توجد قوائم حزبية متاحة حاليًا
             </p>
           ) : (
-            // <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            //   {party.map((item) => (
-            //     <div
-            //       key={item.party_list_id}
-            //       className="relative bg-white border border-gray-300 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
-            //     >
-            //       <div className="p-4">
-            //         <h3 className="text-xl font-semibold mb-2">
-            //           {item.party_name}
-            //         </h3>
-
-            //         {/* <p className="text-gray-700 mb-4">
-            //           عدد الأصوات: {item.vote_count}
-            //         </p> */}
-            //         <button
-            //           onClick={() => handleVoteClick(item)}
-            //           className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600"
-            //         >
-            //           تصويت
-            //         </button>
-            //       </div>
-            //     </div>
-            //   ))}
-            // </div>
+           
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {party.map((item) => (
                 <div

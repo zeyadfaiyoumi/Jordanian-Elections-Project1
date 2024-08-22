@@ -11,7 +11,7 @@ const Timer = () => {
     const fetchElectionData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/elections/1"
+          "http://localhost:5000/api/elections/4"
         ); // Ensure this matches your backend route
         const election = response.data;
 

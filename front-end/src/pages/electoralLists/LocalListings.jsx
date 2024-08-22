@@ -193,39 +193,22 @@ const LocalListings = () => {
               </div>
             </div>
           ))}
-
-          <div
-            className="relative group border border-gray-300 rounded-lg overflow-hidden shadow-lg cursor-pointer transform transition-all duration-300 hover:scale-105"
-            onClick={() => handleVoteClick(selectedListId)}
-            style={{
-              backgroundImage:
-                "url('https://i.postimg.cc/RFxVNjqP/Rectangle-19.png')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              height: "250px",
-            }}
-          >
-            <div className="absolute inset-0 bg-black bg-opacity-50 group-hover:bg-opacity-30 transition duration-300"></div>
-            <div className="relative z-10 p-4 flex items-center justify-center h-full">
-              <span className="text-center text-white text-xl font-bold">
-                ورقة بيضاء
-              </span>
-            </div>
-            <div className="absolute bottom-4 left-4">
-              <button className="bg-blue-500 text-white hover:bg-blue-600 rounded-lg p-3 shadow-lg text-lg flex items-center">
-                <FaVoteYea className="mr-2" /> تصويت
-              </button>
-            </div>
-          </div>
         </div>
 
         {showCandidates && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div className="bg-white p-6 rounded-lg max-w-3xl w-full max-h-[80vh] overflow-y-auto">
-              <div className="border-b-2 border-gray-300 pb-4 mb-4">
+              <div className="relative border-b-2 border-gray-300 pb-4 mb-4">
                 <h2 className="text-3xl font-bold text-center text-indigo-600">
                   {currentListName}
                 </h2>
+                <div className="absolute inset-y-0 right-0 flex items-center pr-4">
+                  <input
+                    type="checkbox"
+                    id="list-checkbox"
+                    className="form-checkbox h-6 w-6 text-indigo-600"
+                  />
+                </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {candidates.map((candidate) => (

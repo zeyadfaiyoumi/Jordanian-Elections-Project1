@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 // Import the image
-import fullWidthImage from '../Media/jordanvote.png'; // Adjust the path as needed
+import fullWidthImage from "../Media/jordanvote.png"; // Adjust the path as needed
 
 const Pic = () => {
   return (
@@ -16,7 +16,7 @@ const Pic = () => {
 
       {/* Transparent Button Overlay */}
       <Link
-        to="/vote"
+        to="/Voting"
         className="absolute flex items-center justify-center top-1/2 transform -translate-y-1/2 md:right-16 right-4"
       >
         <button className="bg-gray-800 border-2 border-white text-white px-8 py-4 rounded-lg text-xl font-bold hover:bg-white hover:text-black transition-colors duration-300">

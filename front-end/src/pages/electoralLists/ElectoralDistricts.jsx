@@ -73,7 +73,7 @@ function ElectoralDistricts() {
               onClick={() => handleDistrictSelect(district.district_id)}
             >
               <div
-                className="absolute inset-0 bg-gradient-to-r from-green-700 via-green-500 to-green-300 bg-opacity-80 flex items-center justify-center text-white text-lg font-bold p-4"
+                className="absolute inset-0 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-500 bg-opacity-80 flex items-center justify-center text-white text-lg font-bold p-4"
                 style={{ backdropFilter: "blur(4px)" }}
               >
                 <div className="flex items-center">

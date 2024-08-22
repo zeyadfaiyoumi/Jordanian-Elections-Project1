@@ -62,7 +62,6 @@ const Navbar = () => {
             <Link to="/pages/aboutUs" className="hover:text-gray-600">
               من نحن
             </Link>
-            
 
             <Link to="/pages/contactUs" className="hover:text-gray-600">
               تواصل معنا
@@ -75,6 +74,13 @@ const Navbar = () => {
             </Link>
             <Link to="/PaymentComponent" className="hover:text-gray-600">
               اعلانات
+            </Link>
+            <Link
+              to="/debates"
+              className="text-lg hover:text-gray-600"
+              onClick={() => setIsOpen(false)}
+            >
+              المـناظرات
             </Link>
             <Link
               to="/create-debate"
