@@ -94,7 +94,6 @@ function PartyLists() {
               لا توجد قوائم حزبية متاحة حاليًا
             </p>
           ) : (
-           
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {party.map((item) => (
                 <div
@@ -128,8 +127,8 @@ function PartyLists() {
             </div>
           )}
         </div>
-        <Footer />
       </div>
+      <Footer />
     </>
   );
 }

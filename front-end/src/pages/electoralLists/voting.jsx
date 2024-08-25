@@ -7,7 +7,7 @@ function Voting() {
   return (
     <>
       <Nav />
-      <Header />
+      {/* <Header /> */}
       <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
         <div className="flex space-x-8">
           <div
